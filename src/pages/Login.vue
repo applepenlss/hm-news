@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mg-top">
     <my-header>登录</my-header>
     <my-logo></my-logo>
     <!-- 目的：让组件my-input的作用和input框一样 -->
@@ -32,7 +32,7 @@
 // import axios from 'axios'
 export default {
   methods: {
-    login() {
+    async login() {
       // 校验是否通过如果通过才发送请求
       if (
         !this.$refs.username.validate(this.username) ||
@@ -41,24 +41,35 @@ export default {
         return
       }
       // 发送请求
-      this.$axios({
+      const res = await this.$axios({
         method: 'POST',
         url: '/login',
         data: {
           username: this.username,
           password: this.password
         }
-      }).then(res => {
-        console.log(res.data)
-        // 判断是否登录成功
-        if (res.data.statusCode === 200) {
-          this.$toast('登录成功')
+      })
+      // console.log(res.data)
+      //
+      let { data, statusCode, message } = res.data
+      // 判断是否登录成功
+      if (statusCode === 200) {
+        this.$toast(message)
+        // 在localStorage本地存储存储id
+        localStorage.setItem('user_id', data.user.id)
+        // 本地存储token
+        localStorage.setItem('token', data.token)
+        // 需要判断是从哪里跳转到登录页的判断是否有back
+        if (this.$route.params.back) {
+          // 将返回上一页
+          this.$router.back()
+        } else {
           // 跳转到个人中心
           this.$router.push('/user')
-        } else {
-          this.$toast('登录失败')
         }
-      })
+      } else {
+        this.$toast(message)
+      }
     }
   },
   data() {

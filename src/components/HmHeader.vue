@@ -18,8 +18,14 @@ export default {}
   height: 40px;
   line-height: 40px;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   border-bottom: 1px solid #ccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  z-index: 999;
   .left,
   .right {
     width: 40px;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mg-top">
     <my-header>注册</my-header>
     <my-logo></my-logo>
     <my-input
