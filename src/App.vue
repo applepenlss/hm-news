@@ -1,6 +1,9 @@
 <template>
   <div class="demo">
-    <router-view></router-view>
+    <!-- 路由出口 -->
+    <keep-alive include="home">
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 

@@ -19,6 +19,7 @@
       <my-navbar title="我的关注" content="关注的用户" @click="$router.push('/user_follows')"></my-navbar>
       <my-navbar title="我的跟帖" content="跟帖/回复" @click="$router.push('/user_comment')"></my-navbar>
       <my-navbar title="我的收藏" content="视频/文章" @click="$router.push('/user_star')"></my-navbar>
+      <my-navbar title="栏目管理" content @click="$router.push('/category_edit')"></my-navbar>
       <my-navbar title="设置" content @click="$router.push('/edit')"></my-navbar>
       <my-navbar title="首页" content @click="$router.push('/')"></my-navbar>
       <my-navbar title="退出" content @click="exitFn"></my-navbar>

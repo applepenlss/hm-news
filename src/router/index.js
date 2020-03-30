@@ -12,6 +12,8 @@ import MyComment from '../pages/MyComment.vue'
 import MyStar from '../pages/MyStar.vue'
 import Home from '../pages/Home.vue'
 import PostDetails from '../pages/PostDetails.vue'
+import CategoryEdit from '../pages/CategoryEdit.vue'
+import Search from '../pages/Search.vue'
 // 告诉vue使用vue-router插件
 Vue.use(VueRouter)
 
@@ -31,6 +33,14 @@ const router = new VueRouter({
       path: '/post_details/:id',
       component: PostDetails,
       name: 'post_details'
+    },
+    {
+      path: '/category_edit',
+      component: CategoryEdit
+    },
+    {
+      path: '/search',
+      component: Search
     }
   ]
 })
